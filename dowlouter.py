@@ -38,14 +38,14 @@ def dowloutervideo():
         
         if not os.path.isdir(sd):
             checkpb.configure(text="❌ Incorrect file path")
-            return # Вот теперь точно стоп
+            return 
     if "youtube.com" not in url and "youtu.be" not in url:
         checkpb.configure(text="wrong link")
         return
     olypm3()
     if olypm3() == 1:
         options = { 
-        'outtmpl': f'{wti.get()}/%(title)s.%(ext)s',  # Куда сохранять
+        'outtmpl': f'{wti.get()}/%(title)s.%(ext)s',  
         'format': 'bestaudio[ext=mp3]/best',
         'postprocessors': [{
         'key': 'FFmpegExtractAudio',
@@ -58,7 +58,7 @@ def dowloutervideo():
     }
     else:
         options = { 
-        'outtmpl': f'{wti.get()}/%(title)s.%(ext)s',  # Куда сохранять
+        'outtmpl': f'{wti.get()}/%(title)s.%(ext)s',  
         'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best',
         'noplaylist': True,
         "progress_hooks": [progresshook]
@@ -79,7 +79,7 @@ app.title("YouTube Video Downloader by s0nder")
 try:
     pywinstyles.apply_style(app, "win7")
 except Exception:
-    pass # Если не сработало — просто будет обычный интерфейс, но программа не упадет
+    pass 
 set_appearance_mode("light")
 app.geometry("500x330")
 ims = Image.open("watermark.png")
@@ -98,4 +98,5 @@ wti.pack(pady=(0,0))
 mp3omly.pack()
 button.pack(pady=(2,0))
 checkpb.pack(pady=(0,0))
+
 app.mainloop()
