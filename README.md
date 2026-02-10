@@ -1,12 +1,12 @@
 # YouTube Downloader
-## ✅ **Download videos** in the best quality (MP4)
+* ✅ **Download videos** in the best quality (MP4)
 * ✅ **Convert to MP3** (high definition audio)
 * ✅ **Selecting a folder** to save
 
 
-  ```bash
+```bash
     git clone https://github.com/Sond3rnU11/YouTube-Downloader-Sonder.git
-    ```
+```
 
 ```bash
 pip install -r requirements.txt
