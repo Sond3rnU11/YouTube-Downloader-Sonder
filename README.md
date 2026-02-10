@@ -5,7 +5,7 @@
 
 
 ```bash
-    git clone https://github.com/Sond3rnU11/YouTube-Downloader-Sonder.git
+git clone https://github.com/Sond3rnU11/YouTube-Downloader-Sonder.git
 ```
 
 ```bash
