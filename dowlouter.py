@@ -6,7 +6,6 @@ import os
 from tkinter import filedialog
 import pystray
 from pystray import MenuItem as item
-
 from PIL import Image
 
 def quitwin(icon, item):
@@ -50,7 +49,7 @@ def progresshook(d):
             s = f"{int(percentage)}%" 
             checkpb.configure(text=s)
         else:
-            print("what")
+            checkpb.configure(text="i idk lol")
         
     elif d['status'] == 'finished':
         checkpb.configure(text="✅ video downloaded")
@@ -64,13 +63,13 @@ def dowloutervideo():
         if not os.path.isdir(sd):
             checkpb.configure(text="❌ Incorrect file path")
             return 
-    if "youtube.com" not in url and "youtu.be" not in url:
-        checkpb.configure(text="wrong link")
-        return
     qu = quality.get()
     qut = qu.replace("p", "")
     olypm3()
     if olypm3() == 1:
+        if "pinterest.com" in url or "tiktok.com" in url:
+            checkpb.configure(text="⚠️only supports MP4")
+            return
         quality.configure(state="disabled")
         options = { 
         'outtmpl': f'{wti.get()}/%(title)s.%(ext)s',  
@@ -85,25 +84,31 @@ def dowloutervideo():
         
     }
     else:
+        if "soundcloud" in url:
+            checkpb.configure(text="⚠️only supports MP3")
+            return
         quality.configure(state="readonly")
         options = { 
         'outtmpl': f'{wti.get()}/%(title)s.%(ext)s',  
-        'format': f'bestvideo[height<={qut}][ext=mp4]+bestaudio/best[height<={qut}][ext=m4a]',
+        'format': f'bestvideo[height<={qut}][ext=mp4]+bestaudio/best[height<={qut}][ext=m4a]/best',
         'noplaylist': True,
         "progress_hooks": [progresshook]
 
     }
 
-    with yt_dlp.YoutubeDL(options) as ydl:
-        info = ydl.extract_info(url, download=False)
+    try:
+        with yt_dlp.YoutubeDL(options) as ydl:
+        
+         info = ydl.extract_info(url, download=False)
         nv.configure(text=info.get("title"))
-        try:
-            ydl.download([url])
-            mp3omly.deselect()
-            quality.configure(state="readonly")
-            
-        except yt_dlp.utils.DownloadError: checkpb.configure(text="❌ Didn't find the video :(")
+        ydl.download([url])
 
+        mp3omly.deselect()
+        quality.configure(state="readonly")
+    except Exception:
+        checkpb.configure(text="❌ VPN/Internet Error or Video Blocked")
+
+    
 
 
 app = CTk()
