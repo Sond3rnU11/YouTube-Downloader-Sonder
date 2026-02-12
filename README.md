@@ -16,5 +16,5 @@ pip install -r requirements.txt
 
 
 
-![Comp 1_1](https://github.com/user-attachments/assets/f506aff9-d0d7-4163-871b-da72dcfa34d8)
 
+![ezgif-55773a00577da408](https://github.com/user-attachments/assets/99071b31-9a09-4f7e-b953-a45ff6065b87)
