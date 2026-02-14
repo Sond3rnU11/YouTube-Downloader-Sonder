@@ -18,3 +18,5 @@ pip install -r requirements.txt
 
 
 ![ezgif-55773a00577da408](https://github.com/user-attachments/assets/99071b31-9a09-4f7e-b953-a45ff6065b87)
+
+https://www.youtube.com/watch?v=LB7R0GwzZ2g
