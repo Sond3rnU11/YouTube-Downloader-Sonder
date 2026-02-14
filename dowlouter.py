@@ -20,7 +20,7 @@ def showwin(icon, item):
 def witndraw():
     app.withdraw()
     
-    image = Image.open("mini.png")
+    image = Image.open("mini.ico")
     menu = (item("Show", showwin), item("Quit", quitwin))
     icon = pystray.Icon("name", image, "Sond33r Downloader", menu)
     threading.Thread(target=icon.run, daemon=True).start()
@@ -57,7 +57,6 @@ def dowloutervideo():
     url = ltv.get()
     sd = wti.get()
     if os.path.isdir(sd) == False:
-        save_puth()
         sd = wti.get()
         
         if not os.path.isdir(sd):
@@ -90,7 +89,7 @@ def dowloutervideo():
         quality.configure(state="readonly")
         options = { 
         'outtmpl': f'{wti.get()}/%(title)s.%(ext)s',  
-        'format': f'bestvideo[height<={qut}][ext=mp4]+bestaudio/best[height<={qut}][ext=m4a]/best',
+        'format': f'bestvideo[height<={qut}][ext=mp4]+bestaudio[height<={qut}][ext=m4a]/best',
         'noplaylist': True,
         "progress_hooks": [progresshook]
 
@@ -112,7 +111,8 @@ def dowloutervideo():
 
 
 app = CTk()
-app.protocol('WM_DELETE_WINDOW', witndraw)
+#app.protocol('WM_DELETE_WINDOW', witndraw)
+app.iconbitmap("mini.ico")
 app.title("YouTube Video Downloader by s0nder")
 try:
     pywinstyles.apply_style(app, "win7")
@@ -121,21 +121,24 @@ except Exception:
 set_appearance_mode("light")
 app.geometry("500x360")
 ims = Image.open("watermark.png")
-button = CTkButton(master=app, text="ENTER", corner_radius=15, command=lambda: threading.Thread(target=dowloutervideo).start(), fg_color="#b5cee7", text_color="#000000", hover_color="#8091a1")
-wti = CTkEntry(master=app, placeholder_text="where to install")
+button = CTkButton(master=app, text="DOWNLOAD", corner_radius=15, command=lambda: threading.Thread(target=dowloutervideo).start(), fg_color="#b5cee7", text_color="#000000", hover_color="#8091a1", width=330)
+wti = CTkEntry(master=app, placeholder_text="where to install", width=330)
 ltv = CTkEntry(master=app, placeholder_text="link to video", text_color="#000000", width=330)
-nv = CTkLabel(master=app, text="name video")
-checkpb = CTkLabel(master=app, text="")
+nv = CTkLabel(master=app, text="", width=1, height=1)
+checkpb = CTkLabel(master=app, text="", width=10, height=10)
 mp3omly = CTkCheckBox(master=app, text="mp3 only",command=olypm3, checkmark_color="#000000", fg_color="#b5cee7")
 logoimg = CTkLabel(master=app, text="", image=CTkImage(light_image=ims, size=(150,150)) )
-quality = CTkOptionMenu(master=app, values=["1080p", "720p", "480p"], command=quatl, button_color="#b5cee7", dropdown_fg_color="#b5cee7", fg_color="#b5cee7", text_color="#000000")
-logoimg.pack(pady=(0,0))
-ltv.pack(pady=(0,0))
-nv.pack(pady=(0,0))
-wti.pack(pady=(0,0))
+quality = CTkOptionMenu(master=app, values=["1080p", "720p", "480p"], command=quatl, button_color="#b5cee7", dropdown_fg_color="#b5cee7", fg_color="#b5cee7", text_color="#000000", width=330)
+foldessave = CTkButton(master=app, command=save_puth, width=10, height=25, text="📁", fg_color="#b5cee7", hover_color="#8091a1", text_color="#000000", )
+logoimg.place(relx=0.5, rely=0.2, anchor=CENTER)
+
+ltv.pack(pady=(165,0))
+nv.place(relx=0.5, rely=0.39, anchor=CENTER)
+foldessave.place(relx=0.854, rely=0.60, anchor=CENTER)
+wti.place(relx=0.5, rely=0.6, anchor=CENTER)
 quality.set("1080p")
-quality.pack(pady=(8,8))
-mp3omly.pack()
-button.pack(pady=(2,0))
-checkpb.pack(pady=(0,0))
+quality.place(relx=0.5, rely=0.71, anchor=CENTER)
+mp3omly.place()
+button.place(relx=0.5, rely=0.82, anchor=CENTER)
+checkpb.place(relx=0.5, rely=0.89, anchor=CENTER)
 app.mainloop()
