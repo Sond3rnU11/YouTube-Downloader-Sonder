@@ -12,11 +12,7 @@ git clone https://github.com/Sond3rnU11/YouTube-Downloader-Sonder.git
 ```bash
 pip install -r requirements.txt
  ```
-<img width="511" height="391" alt="image" src="https://github.com/user-attachments/assets/df5aeb0c-4305-4864-9ad9-b7100cd8d9e6" />
+<img width="508" height="391" alt="image" src="https://github.com/user-attachments/assets/421b861c-2c52-4fe5-a830-a79328e1f4d9" />
 
 
 
-
-![ezgif-55773a00577da408](https://github.com/user-attachments/assets/99071b31-9a09-4f7e-b953-a45ff6065b87)
-
-https://www.youtube.com/watch?v=LB7R0GwzZ2g -- video lol
