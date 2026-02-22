@@ -1,21 +1,41 @@
-# YouTube Downloader
-* ✅ **Download videos** in the best quality (MP4)
-* ✅ **Convert to MP3** (high definition audio)
-* ✅ **Selecting a folder** to save
-* ✅ **Quality Selector**: Added a new Video Quality dropdown menu (OptionMenu). You can now choose between 1080p, 720p, and 480p before starting your download.
-* ✅ **System Tray Integration**: The app no longer closes instantly when you click the "X". It now minimizes to the system tray (near the clock). You can restore the window or exit the app entirely via the tray icon's context menu.
+# 🕶️ S0nder Downloader (v1.4)
+**Minimalist. Fast. No BS.**
+
+Built to fix the hell of ad-infested downloader sites. A clean, open-source tool for grabbing media from YouTube, TikTok, Pinterest, and SoundCloud without trackers or pop-ups.
+
+<img width="510" height="407" alt="image" src="https://github.com/user-attachments/assets/6e4ea64c-45aa-4340-9646-a2fe760e52de" />
 
 
-The software is created for educational purposes.
-```bash
-git clone https://github.com/Sond3rnU11/YouTube-Downloader-Sonder.git
-```
+## ✨ Features
+*   **📂 Native Experience:** Built-in folder picker and persistent settings (saves your last path).
+*   **🌓 Aesthetic Themes:** Dynamic Light (Win7 style) and Dark (Dystopian) modes with real-time switching.
+*   **🛡️ Smart Platform Guard:** 
+    *   **TikTok/Pinterest:** Automatically locked to MP4.
+    *   **SoundCloud:** Automatically locked to MP3.
+*   **🖼️ Live Preview:** Toggleable video thumbnails directly in the UI.
+*   **🔄 Background Operation:** Minimizes to system tray with custom context menu.
+*   **🚀 Safe Threading:** Smooth UI experience with real-time progress tracking.
 
-```bash
-pip install -r requirements.txt
- ```
-<img width="512" height="406" alt="image" src="https://github.com/user-attachments/assets/e4fd567c-a79a-46a6-a25d-1de6c9b446f7" />
+## 🛠️ Technical Specs
+*   **Language:** Python 3.x
+*   **Core:** `yt-dlp` for heavy lifting.
+*   **UI:** `CustomTkinter` + `pywinstyles` (Frutiger Aero aesthetic).
+*   **Safety:** Robust error handling for VPN drops and restricted content.
 
+---
 
+## 🚀 How to use
+1. Download the latest `.exe` from the **Releases** section.
+2. Paste your link.
+3. Choose your quality.
+4. Hit **DOWNLOAD**.
 
+---
 
+## 👤 About the Author
+**Elisey (@S0ondN)**
+15-year-old Developer & Digital Creator. 
+I build tools that work and look exactly how I want them to. 
+
+*   **Skills:** Python, Motion Design (After Effects), UI/UX.
+*   **Motto:** *Building software with soul.*
